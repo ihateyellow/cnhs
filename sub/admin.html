@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Admin Module  </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Include meta tag to ensure proper rendering and touch zooming -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Include jQuery Mobile stylesheets -->
+	<link rel="stylesheet" href="ext/jquery.mobile-1.4.5.min.css">
+	<!-- Include the jQuery library -->
+	<script src="ext/jquery-1.11.3.min.js"></script>
+	
+	<!-- application js --> 
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/acc.js"></script>
+
+	<!-- Include the jQuery Mobile library -->
+	<script src="ext/jquery.mobile-1.4.5.min.js"></script>
+
+	
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="panel" id="myPanel"> 
+    <h3>Main Menu</h3>
+		<a href="#pageone"  class="ui-btn ui-btn-b ui-corner-all">Messenger</a>
+		<a href="#pagetwo"  class="ui-btn ui-btn-b ui-corner-all">Profile</a>	
+		<a href="#pagethree"  class="ui-btn ui-btn-b ui-corner-all">Notification</a>
+		<a href="#pagefive"  class="ui-btn ui-btn-b ui-corner-all">Accounts</a>
+		<a href="#pagefour"  class="ui-btn ui-btn-b ui-corner-all">About</a>
+		<a href="messenger.html" data-ajax="false"  class="ui-btn ui-btn-b ui-corner-all btn-logout">Logout</a>
+  </div> 
+
+
+  
+  <div data-role="header">
+	<a href="#myPanel" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Main Menu</a>
+    <h3 class="btn-logout">Messenger</h3>
+    <a href="#pagetwo" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left txt-name"> Name </a>
+  </div> 	
+
+  <div data-role="main" class="ui-content">
+
+		  <div data-role="main" class="ui-content">
+			<h4>Search by name </h4>
+			<form class="ui-filterable">
+			  <input id="myFilter" data-type="search">
+			</form>
+			<ul data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
+			  <li><a href="#">Principal 1</a></li>
+			  <li><a href="#">Teacher 1</a></li>
+			  <li><a href="#">Teacher 2</a></li>
+			  <li><a href="#">Student 1</a></li>
+			  <li><a href="#">Student 2</a></li>
+			  <li><a href="#">Student 3</a></li>
+			  <li><a href="#">Student 4</a></li>			
+			</ul>
+		  </div>
+	 	
+	
+  </div>
+  
+  <div data-role="footer">
+    <p>   Congressional National High School </p>
+  </div> 
+</div> 
+
+
+<!--- pagetwo -->
+	
+<div data-role="page" id="pagetwo">
+  <div data-role="panel" id="myPanel1"> 
+    <h3>Main Menu</h3>
+		<a href="#pageone"  class="ui-btn ui-btn-b ui-corner-all">Messenger</a>
+		<a href="#pagetwo"  class="ui-btn ui-btn-b ui-corner-all">Profile</a>	
+		<a href="#pagethree"  class="ui-btn ui-btn-b ui-corner-all">Notification</a>
+		<a href="#pagefive"  class="ui-btn ui-btn-b ui-corner-all">Accounts</a>
+		<a href="#pagefour"  class="ui-btn ui-btn-b ui-corner-all">About</a>
+		<a href="messenger.html" data-ajax="false"   class="ui-btn ui-btn-b ui-corner-all">Logout</a>
+  </div> 
+
+  <div data-role="header">
+	<a href="#myPanel1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Main Menu</a>
+    <h3> Profile </h3>
+    <a href="#pagetwo" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left txt-name"> Name </a>
+  </div> 	
+
+  <div data-role="main" class="ui-content">
+   
+	 	
+			
+	
+  </div>
+  
+  <div data-role="footer">
+    <p> Congressional National High School </p>
+  </div> 
+</div> 
+
+<!--- page three -->
+
+<div data-role="page" id="pagethree">
+  <div data-role="panel" id="myPanel2"> 
+    <h3>Main Menu</h3>
+		<a href="#pageone"  class="ui-btn ui-btn-b ui-corner-all"> Messenger</a>
+		<a href="#pagetwo"  class="ui-btn ui-btn-b ui-corner-all">Profile</a>	
+		<a href="#pagethree"  class="ui-btn ui-btn-b ui-corner-all">Notification</a>
+		<a href="#pagefive"  class="ui-btn ui-btn-b ui-corner-all">Accounts</a>
+		<a href="#pagefour"  class="ui-btn ui-btn-b ui-corner-all">About</a>
+		<a href="messenger.html" data-ajax="false"   class="ui-btn ui-btn-b ui-corner-all">Logout</a>
+  </div> 
+  
+
+  <div data-role="header">
+	<a href="#myPanel2" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Main Menu</a>
+    <h3> Notification </h3>
+    <a href="#pagetwo" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left txt-name"> Name </a>
+  </div> 	
+
+  <div data-role="main" class="ui-content">
+   
+		  <div data-role="main" class="ui-content">
+			
+		  </div>
+	 	
+	
+  </div>
+  
+  <div data-role="footer">
+    <p> Congressional National High School </p>
+  </div> 
+</div> 
+
+
+<!--- page four -->
+
+<div data-role="page" id="pagefour">
+  <div data-role="panel" id="myPanel3"> 
+    <h3>Main Menu</h3>
+		<a href="#pageone" class="ui-btn ui-btn-b ui-corner-all">Messenger</a>
+		<a href="#pagetwo" class="ui-btn ui-btn-b ui-corner-all">Profile</a>	
+		<a href="#pagethree" class="ui-btn ui-btn-b ui-corner-all">Notification</a>
+		<a href="#pagefive"  class="ui-btn ui-btn-b ui-corner-all">Accounts</a>
+		<a href="#pagefour" class="ui-btn ui-btn-b ui-corner-all">About</a>
+		<a href="messenger.html" data-ajax="false"   class="ui-btn ui-btn-b ui-corner-all">Logout</a>
+  </div> 
+
+
+  <div data-role="header">
+	<a href="#myPanel3" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Main Menu</a>
+    <h3>About</h3>
+    <a href="#pagetwo" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left txt-name"> Name </a>
+  </div> 	
+  <div data-role="main" class="ui-content">
+
+		  <div data-role="main" class="ui-content">
+				<h4>  LAN MESSENGER APPLICATION </h4>
+ 
+ 
+				<h4> Significance of Study</h4> 
+				<p>	The LAN Messenger is an application for communications in one local area network. Nowadays most of the student is very distracted on social media whenever there is an internet connection; they are always checking their social sites account rather than checking on their lessons. Thus, the proposed study can help the students and teachers to have a communication to each other and help the students to be updated on the lesson at the same time.  </p>
+				<br> </br>
+				
+				<h4> Developers </h4>
+				<p> Joanna Vergara </p> 
+				<p>	Margie Arcilla </p>
+				<p>	Mica Ayala </p>
+
+		  </div>
+	 	
+	
+  </div>
+  
+  <div data-role="footer">
+    <p> Congressional National High School </p>
+  </div> 
+</div> 
+
+
+
+<!--- page five -->
+
+<div data-role="page" id="pagefive">
+  <div data-role="panel" id="myPanel4"> 
+    <h3>Main Menu</h3>
+		<a href="#pageone" class="ui-btn ui-btn-b ui-corner-all">Messenger</a>
+		<a href="#pagetwo" class="ui-btn ui-btn-b ui-corner-all">Profile</a>	
+		<a href="#pagethree" class="ui-btn ui-btn-b ui-corner-all">Notification</a>
+		<a href="#pagefive"  class="ui-btn ui-btn-b ui-corner-all">Account</a>
+		<a href="#pagefour" class="ui-btn ui-btn-b ui-corner-all">About</a>
+		<a href="messenger.html" data-ajax="false"   class="ui-btn ui-btn-b ui-corner-all">Logout</a>
+  </div> 
+
+  <div data-role="header">
+	<a href="#myPanel4" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Main Menu</a>
+    <h3>Manage Account</h3>
+    <a href="#pagetwo" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left txt-name"> Name </a>
+  </div> 		
+
+  <div data-role="main" class="ui-content">
+
+		  <div data-role="main" class="ui-content">
+				<h4>  LAN MESSENGER APPLICATION </h4>
+ 
+
+
+		  </div>
+	 	
+	
+  </div>
+  
+  <div data-role="footer">
+    <p> Congressional National High School </p>
+  </div> 
+</div> 
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+	
+	#contact {
+		margin-top: 3%;
+		margin-left: 25%;
+	}
+
+	#chat_box {
+		overflow: auto; 
+		margin-left: 25%; 
+		border: 1px solid; 
+		height: 200px; 
+		width: 50%;
+		border-radius: 5px;
+	}
+
+	#message_box {
+		margin-left: 25%;
+		margin-top: 10px;
+		width: 50%;
+	}
+
+	#sender {
+		margin-left: 10px;
+	}
+
+	#receiver {
+		text-align: right;
+		margin-right: 10px;
+	}
+
+	#list {
+		overflow: auto;
+		margin-top: 10px;
+		height: 200px;
+		border: 1px solid;
+		border-radius: 5px;
+	}
+
+	.ui-autocomplete {
+  		z-index:2147483647;
+	}

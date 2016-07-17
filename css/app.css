@@ -1,0 +1,18 @@
+.ulist{
+	margin-top:10px;
+}
+
+.mfriend{
+	overflow-y:auto;
+	max-height:400px; 
+}
+
+.modal-body-account{
+	overflow-y:auto;
+	max-height:400px; 
+}
+
+.fa-sitemap{
+	margin-left:10px;
+	margin-right:5px;
+}

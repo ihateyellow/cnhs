@@ -1,0 +1,347 @@
+<!--
+Author: AMA Student 
+Author URL: http://raveteam.net
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>CNHS </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Include meta tag to ensure proper rendering and touch zooming -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Include the jQuery library -->
+<script src="ext/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+
+<!-- Inlcude the Bootstrap library -->
+<script type="text/javascript" src="js/bootstrap-min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<!-- bootstrap -->
+<link href="css/bootstrap2.css" rel="stylesheet" type="text/css" media="all" />
+
+<!-- application -->
+<link rel="stylesheet" href="css/app.css">
+
+</head>
+<body class="cnhs">
+	<div id="chat" class="container">
+		<div class="row">
+			<div class="panel panel-primary" >
+				<div class="panel-heading">
+					<h3>Chatbox</h3>
+				</div>
+				<div class="panel-body">
+					<div id="contact">
+						<button type="button" class="btn btn-default" id="btn_show_contact">Contact <span class="glyphicon glyphicon-user"></span></button>
+					</div>
+					<div id="chat_box"></div>
+					<div>
+						<div id="message_box" class="input-group">
+							<input id="txt_message" type="text" class="form-control" placeholder="Message" />
+							<div class="input-group-btn">
+								<button type="button" id="btn_send" class="btn btn-success"><span class="glyphicon glyphicon-send"></span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div id="modal_contacts" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Search Contact</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div id="modal_search" class="input-group">
+	        	<div class="ui-widget">
+	        		<input type="search" id="txt_search" class="form-control" placeholder="Search">
+	        	</div>
+	        	<div class="input-group-btn">
+	        		<button type="button" id="btn_seach" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+	        	</div>
+	        </div>
+	        <div id="list">
+	        	
+	        </div>
+	      </div>
+	      <div class="modal-footer">
+	      	<div class="pull-left">
+	      		<label>Contact Count: <span id="contact_count">0</span></label>
+	      	</div>
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-success" id="btn_contact_submit">Chat</button>
+	      </div>
+	    </div>
+
+	  </div>
+</div>
+
+</body>
+<footer>
+	<link rel="stylesheet" type="text/css" href="css/chat.css">
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			if(localStorage.getItem('id') === null || localStorage.getItem('id') === ''){
+				redirect('messenger');
+			}		
+
+			var isMobile = {
+			    Android: function() {
+			        return navigator.userAgent.match(/Android/i);
+			    },
+			    BlackBerry: function() {
+			        return navigator.userAgent.match(/BlackBerry/i);
+			    },
+			    iOS: function() {
+			        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+			    },
+			    Opera: function() {
+			        return navigator.userAgent.match(/Opera Mini/i);
+			    },
+			    Windows: function() {
+			        return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+			    },
+			    any: function() {
+			        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+			    }
+			};
+
+			if(!isMobile.any()){
+				$('#modal-dialog').css('width','30%');
+			}
+
+			var aUrl = window.location.origin + '/cnhs/server/ajax_chat.php';
+			var active_user;
+			var active_mate;
+			var messageid;
+			var contact_lst = [];	
+
+			//Window Load 
+			$(window).load(function(){
+				active_user = localStorage.getItem('username');
+				var user_id = localStorage.getItem('id');
+				//var mate_id = tmp_user.indexOf(active_mate);
+				//messageid = (user_id < mate_id) ? tmp_id[user_id] + "" + tmp_id[mate_id] : tmp_id[mate_id] + "" + tmp_id[user_id];
+				// get_chat();
+				// auto_refresh();
+			});
+
+			function auto_refresh(){
+				setInterval(function(){
+					get_chat();
+				},2000);
+			}
+
+			// Upper First letter
+			function upper_first(data){
+				return data[0].toUpperCase() + data.substring(1); 
+			}
+
+			//DOM
+			function load_chat(data){
+				var c = '';
+				var sender_name;
+				$('#chat_box').empty();
+				$.each(data,function(k,v){
+					//console.log(v);
+					sender_name = upper_first(v['sender']);
+					if(active_mate == v['sender']){
+						c+= '<p id="sender"><span id="sender_name">'+sender_name+' - </span> <span id="sender_msg">'+v['message']+'</span></p>';
+					}else{
+						c+= '<p id="receiver"><span id="receiver_name">'+sender_name+' - </span> <span id="receiver_msg">'+v['message']+'</span></p>';
+					}
+				});
+				$('#chat_box').html(c);
+				$("#chat_box").scrollTop($("#chat_box")[0].scrollHeight);
+			}
+
+			//Call Data from Server
+			function get_chat(){
+				$.ajax({
+					url: aUrl,
+					type: 'POST',
+					dataType: 'JSON',
+					data: {type : 'load_chat', messageid: messageid},
+					success: function(response){
+						//console.log(response);
+						if(Object.keys(response['chat']).length > 0){ load_chat(response['chat']); }
+					},
+					error: function(err){
+						console.log(err);
+					}
+				});
+			}
+
+			//Send Message
+			$('#btn_send').on('click',function(){
+				var message = $('#txt_message').val();
+				if(message){
+					$.ajax({
+						url: aUrl,
+						type: 'POST',
+						dataType: 'JSON',
+						data: {type : 'send_msg', message : message, active_user, chat_mate: active_mate, messageid: messageid},
+						success: function(response){
+							//console.log(response);
+							var status = response['send_status'];
+							if(status == true){
+								$('#txt_message').val('');
+							}else{
+								alert('Server Error');
+							}
+						},
+						error: function(err){
+							console.log(err);
+						}
+					});
+				}else{
+					alert('Empty Message!');
+				}
+			});
+
+			//Func DOM Contact
+			function _contact_result(data, code){
+				var l = '';
+				var len = Object.keys(data[code]).length;
+				$('#list').empty();
+				$('#list').append('<div class="list-group">');
+				$.each(data[code],function(k,v){
+					if(len > 0){
+						var check_status = (contact_lst.indexOf(v['userid']) > -1) ? 'checked="checked"' : "";
+						$('#list').append('<div class="checkbox"><h4><a data-uid="'+v['userid']+'" class="list-group-item select_contact"><label><input class="chk_contact" type="checkbox" value="'+v['userid']+'" '+check_status+'></label> '+v['name']+'</a></h4></div>');
+					}
+				});
+				$('#list').append('</div>');
+			}
+
+			//Show Contact
+			function _show_contact(initiator){
+				$.ajax({
+					url: aUrl,
+					type: 'POST',
+					dataType: 'JSON',
+					data: {type : 'load_contact', active_user : active_user},
+					success: function(response){
+						console.log(response);
+						if(Object.keys(response['contact']).length > 0){
+							_contact_result(response,'contact');
+							if(initiator == 'button'){
+								$('#modal_contacts').modal('show');
+							}
+						}
+					},
+					error: function(err){
+						console.log(err);
+					}
+				});
+			}
+
+			$('#btn_show_contact').on('click',function(){
+				contact_lst = [];
+				$('#contact_count').html('0');
+				_show_contact('button');
+			});
+
+			//Search autocomplete
+			$('#txt_search').autocomplete({
+				source: function(request, response){
+					var keyword = $('#txt_search').val();
+					$.ajax({
+						url: aUrl,
+						type: 'POST',
+						dataType: 'JSON',
+						data: {type : 'live_search', active_user: active_user, keyword : keyword},
+						success: function(data){
+							//console.log(data);
+							var lst_name = [];
+							$.each(data['result'],function(k,v){
+								lst_name.push(v['name']);
+							});
+							response(lst_name);
+						},
+						error: function(err){
+							console.log(err);
+						}
+					});
+				},
+				delay: 1000
+			});
+
+			//Search Keyword
+			function _search(keyword){
+				$.ajax({
+					url: aUrl,
+					type: 'POST',
+					dataType: 'JSON',
+					data: {type : 'live_search', keyword : keyword, active_user : active_user},
+					success: function(response){
+						//console.log(response);
+						if(Object.keys(response['result']).length > 0){
+							_contact_result(response,'result');
+							$('#txt_search').val('');
+						}
+					},
+					error: function(err){
+						console.log(err);
+					}
+				});
+			}
+
+			//Click Search
+			$('#btn_seach').on('click',function(){
+				var keyword = $('#txt_search').val();
+				if(keyword){
+					_search(keyword);
+				}
+			});
+
+			//Enter Search
+			$('#txt_search').on('keypress',function(e){
+				if(e.keyCode == 13 && e.charCode == 13){
+					var keyword = $('#txt_search').val();
+					if(keyword){
+						_search(keyword);
+					}
+				}
+			});
+
+			//Check Contact
+			$('#list').on('change','.chk_contact',function(){
+				var uid = $(this).val();
+				if($(this).is(':checked')){
+					//Add to array
+					contact_lst.push(uid);
+				}else{
+					var search_active = contact_lst.indexOf(uid);
+					if(search_active > -1){
+						//Remove to array
+						contact_lst.splice(search_active, 1);
+					}
+				}
+				var c = contact_lst.length;
+				$('#contact_count').html(c);
+				_show_contact('check');
+			});
+
+			//Select Contact
+			$('#btn_contact_submit').on('click',function(){
+				active_mate = contact_lst;
+				$('#modal_contacts').modal('hide');
+				var mate_sort = active_mate.sort();
+				console.log(active_mate);
+			});
+
+		});
+	</script>
+</footer>
+</html>

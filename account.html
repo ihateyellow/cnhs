@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> CNHS Messenger  </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Include meta tag to ensure proper rendering and touch zooming -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Include jQuery Mobile stylesheets -->
+	<link rel="stylesheet" href="ext/jquery.mobile-1.4.5.min.css">
+	
+	<!-- bootstrap -->
+	<link href="css/bootstrap2.css" rel="stylesheet" type="text/css" media="all" />
+
+	<!-- font awesome -->
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+
+	<!-- application -->
+	<link rel="stylesheet" href="css/app.css">
+	
+</head>
+<body class="cnhs">
+
+<div data-role="page" id="pageone">
+  <div data-role="panel" id="myPanel"> 
+    <h4 style="text-decoration:underline;"> <i class="fa fa-home" aria-hidden="true"></i>  Main Menu </h4>
+		<a href="#pageone" class="ui-btn ui-icon-comment ui-btn-a ui-btn-icon-left">Messenger</a>
+		<a href="#pagetwo"  class="ui-btn ui-btn-a ui-icon-star ui-btn-icon-left ">Profile</a>	
+		<a href="#pagethree"  class="ul-notification ui-btn ui-btn-a ui-icon-check ui-btn-icon-left ">Notification</a>
+		<a href="#pagefive"  class="ul-account ui-btn ui-btn-a ui-icon-user ui-btn-icon-left">Accounts</a>
+		<a href="#pagefour"  class="ui-btn ui-btn-a ui-icon-info ui-btn-icon-left">About</a>
+		<a href="#" data-ajax="false"  class="ui-btn ui-btn-a ui-icon-back ui-btn-icon-left btn-logout">Logout</a>
+  </div> 
+
+
+  
+  <div data-role="header">
+	<a href="#myPanel" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Main Menu</a>
+    <h3></h3>
+    <a href="#pagetwo" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left txt-name"> Name </a>
+  </div> 	
+
+  <div data-role="main" class="ui-content">
+
+  	<br>
+
+  	<ul class="nav nav-tabs">
+	  <li class="active"><a data-toggle="tab" href="#members">Members</a></li>
+	  <li><a data-toggle="tab" href="#messages">Messages</a></li>
+	</ul>
+
+	<div class="tab-content">
+
+	  <div id="members" class="tab-pane fade in active">
+	  	
+	  	  <!-- member list -->
+		  <div data-role="main" class="ui-content">
+			<h4>Search by name </h4>
+			<form class="ui-filterable">
+			  <input id="myFilter" data-type="search">
+			</form>
+
+			<div class="mfriend">
+			<ul class="lv ulist" data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true"></ul>
+		 	</div>
+		  </div>
+		  <!-- memberlist -->
+
+
+	  </div>
+
+	  <div id="messages" class="tab-pane fade">
+	   		
+	   		
+
+	  </div>
+	</div>
+
+
+	 	
+	
+  </div>
+  
+  <div data-role="footer">
+    <p> <i class="fa fa-sitemap" aria-hidden="true"></i>  Congressional National High School </p>
+  </div> 
+</div> 
+
+
+<!--- pagetwo -->
+	
+<div data-role="page" id="pagetwo">
+  <div data-role="panel" id="myPanel1"> 
+ 	<h4 style="text-decoration:underline;"> <i class="fa fa-home" aria-hidden="true"></i>  Main Menu </h4>
+		<a href="#pageone" class="ui-btn ui-icon-comment ui-btn-a ui-btn-icon-left">Messenger</a>
+		<a href="#pagetwo"  class="ui-btn ui-btn-a ui-icon-star ui-btn-icon-left ">Profile</a>	
+		<a href="#pagethree"  class="ul-notification ui-btn ui-btn-a ui-icon-check ui-btn-icon-left ">Notification</a>
+		<a href="#pagefive"  class="ul-account ui-btn ui-btn-a ui-icon-user ui-btn-icon-left">Accounts</a>
+		<a href="#pagefour"  class="ui-btn ui-btn-a ui-icon-info ui-btn-icon-left">About</a>
+		<a href="#" data-ajax="false"  class="ui-btn ui-btn-a ui-icon-back ui-btn-icon-left btn-logout">Logout</a>
+  </div> 
+
+  <div data-role="header">
+	<a href="#myPanel1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Main Menu</a>
+    <h3>  </h3>
+    <a href="#pagetwo" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left txt-name"> Name </a>
+  </div> 	
+
+  <div data-role="main" class="ui-content">
+ 	
+ 	<br/>
+ 	<h4> <span class="txt-name"> </span>'s profile  </h4>
+
+ 	
+  	<table class="table table-bordered table-striped table-hover">
+  		<tbody>
+  			<tr>
+  				<th> ID </th>
+  				<td> <span class="txt-userid"> </span>  </td>
+  			</tr>
+  			<tr>
+  				<th> Name </th>
+  				<td> <span class="txt-name"> </span>  </td>
+  			</tr>
+  			<tr>
+  				<th> Username </th>
+  				<td> <span class="txt-username"> </span>  </td>
+  			</tr>
+  			<tr>
+  				<th>  Gender </th>
+  				<td> <span class="txt-gender"> </span>  </td>
+  			</tr>
+  			<tr>
+  				<th> Age </th>
+  				<td> <span class="txt-age"> </span>  </td>
+  			</tr>
+  			<tr>
+  				<th> Section </th>
+  				<td> <span class="txt-section"> </span>  </td>
+  			</tr>  			
+  			<tr>
+  				<th> Year Level </th>
+  				<td> <span class="txt-yearlevel"> </span>  </td>
+  			</tr>
+  			<tr>
+  				<th> School Year </th>
+  				<td> <span class="txt-schoolyear"> </span>  </td>
+  			</tr>
+  			<tr>
+  				<th> Contact No. </th>
+  				<td> <span class="txt-contactno"> </span>  </td>
+  			</tr>
+  			<tr>
+  				<th> Address </th>
+  				<td> <span class="txt-address"> </span>  </td>
+  			</tr>
+  			<tr>
+  				<th> Date Creation </th>
+  				<td> <span class="txt-datecreation"> </span>  </td>
+  			</tr>
+  			<tr>
+  				<th> Date Modified </th>
+  				<td> <span class="txt-datemodified"> </span>  </td>
+  			</tr>
+  		</tbody>
+  	</table>
+
+
+  </div>
+  
+  <div data-role="footer">
+    <p> <i class="fa fa-sitemap" aria-hidden="true"></i> Congressional National High School </p>
+  </div> 
+</div> 
+
+<!--- page three -->
+
+<div data-role="page" id="pagethree">
+  <div data-role="panel" id="myPanel2"> 
+	 <h4 style="text-decoration:underline;"> <i class="fa fa-home" aria-hidden="true"></i>  Main Menu </h4>
+		<a href="#pageone" class="ui-btn ui-icon-comment ui-btn-a ui-btn-icon-left">Messenger</a>
+		<a href="#pagetwo"  class="ui-btn ui-btn-a ui-icon-star ui-btn-icon-left ">Profile</a>	
+		<a href="#pagethree"  class="ul-notification ui-btn ui-btn-a ui-icon-check ui-btn-icon-left ">Notification</a>
+		<a href="#pagefive"  class="ul-account ui-btn ui-btn-a ui-icon-user ui-btn-icon-left">Accounts</a>
+		<a href="#pagefour"  class="ui-btn ui-btn-a ui-icon-info ui-btn-icon-left">About</a>
+		<a href="#" data-ajax="false"  class="ui-btn ui-btn-a ui-icon-back ui-btn-icon-left btn-logout">Logout</a>
+  </div> 
+  
+
+  <div data-role="header">
+	<a href="#myPanel2" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Main Menu</a>
+    <h3> </h3>
+    <a href="#pagetwo" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left txt-name"> Name </a>
+  </div> 	
+
+  <div data-role="main" class="ui-content">
+   
+		<div data-role="main" class="ui-content">
+			<h3> Notification </h3>
+		</div>
+	 	
+	
+  </div>
+  
+  <div data-role="footer">
+    <p> <i class="fa fa-sitemap" aria-hidden="true"></i> Congressional National High School </p>
+  </div> 
+</div> 
+
+
+<!--- page four -->
+
+<div data-role="page" id="pagefour">
+  <div data-role="panel" id="myPanel3"> 
+ 	<h4 style="text-decoration:underline;"> <i class="fa fa-home" aria-hidden="true"></i>  Main Menu </h4>
+		<a href="#pageone" class="ui-btn ui-icon-comment ui-btn-a ui-btn-icon-left">Messenger</a>
+		<a href="#pagetwo"  class="ui-btn ui-btn-a ui-icon-star ui-btn-icon-left ">Profile</a>	
+		<a href="#pagethree"  class="ul-notification ui-btn ui-btn-a ui-icon-check ui-btn-icon-left ">Notification</a>
+		<a href="#pagefive"  class="ul-account ui-btn ui-btn-a ui-icon-user ui-btn-icon-left">Accounts</a>
+		<a href="#pagefour"  class="ui-btn ui-btn-a ui-icon-info ui-btn-icon-left">About</a>
+		<a href="#" data-ajax="false"  class="ui-btn ui-btn-a ui-icon-back ui-btn-icon-left btn-logout">Logout</a>
+  </div> 
+
+
+  <div data-role="header">
+	<a href="#myPanel3" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Main Menu</a>
+    <h3>About</h3>
+    <a href="#pagetwo" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left txt-name"> Name </a>
+  </div> 	
+  <div data-role="main" class="ui-content">
+
+		  <div data-role="main" class="ui-content">
+				<h4>  LAN MESSENGER APPLICATION </h4>
+ 
+ 
+				<h4> Significance of Study</h4> 
+				<p>	The LAN Messenger is an application for communications in one local area network. Nowadays most of the student is very distracted on social media whenever there is an internet connection; they are always checking their social sites account rather than checking on their lessons. Thus, the proposed study can help the students and teachers to have a communication to each other and help the students to be updated on the lesson at the same time.  </p>
+				<br> </br>
+				
+				<h4> Developers </h4>
+				<p> Joanna Vergara </p> 
+				<p>	Margie Arcilla </p>
+				<p>	Mica Ayala </p>
+
+		  </div>
+	 	
+	
+  </div>
+  
+  <div data-role="footer">
+    <p> <i class="fa fa-sitemap" aria-hidden="true"></i>  Congressional National High School </p>
+  </div> 
+</div> 
+
+
+
+<!--- page five -->
+
+<div data-role="page" id="pagefive">
+  <div data-role="panel" id="myPanel4"> 
+ 	<h4 style="text-decoration:underline;"> <i class="fa fa-home" aria-hidden="true"></i>  Main Menu </h4>
+		<a href="#pageone" class="ui-btn ui-icon-comment ui-btn-a ui-btn-icon-left">Messenger</a>
+		<a href="#pagetwo"  class="ui-btn ui-btn-a ui-icon-star ui-btn-icon-left ">Profile</a>	
+		<a href="#pagethree"  class="ul-notification ui-btn ui-btn-a ui-icon-check ui-btn-icon-left ">Notification</a>
+		<a href="#pagefive"  class="ul-account ui-btn ui-btn-a ui-icon-user ui-btn-icon-left">Accounts</a>
+		<a href="#pagefour"  class="ui-btn ui-btn-a ui-icon-info ui-btn-icon-left">About</a>
+		<a href="#" data-ajax="false"  class="ui-btn ui-btn-a ui-icon-back ui-btn-icon-left btn-logout">Logout</a>
+  </div> 
+
+  <div data-role="header">
+	<a href="#myPanel4" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Main Menu</a>
+    <h3> </h3>
+    <a href="#pagetwo" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left txt-name"> Name </a>
+  </div> 		
+
+  <div data-role="main" class="ui-content">
+
+		  <div data-role="main" class="ui-content">
+				<h4>  Manage Account </h4>
+				   <br>
+				   <button  data-toggle="modal" data-target="#modalAddAccount" class="btn" style="width:150px;"> 
+				   		<i class="fa fa-user-plus" aria-hidden="true"></i>   Add Account
+				   </button>
+				   
+			  	  <!-- member list -->
+				  <div data-role="main" class="ui-content">
+					<h4>Search by name </h4>
+					<form class="ui-filterable">
+					  <input id="myFilter2" data-type="search">
+					</form>
+
+					<div class="mfriend">
+					<ul class="lv updatelist" data-role="listview" data-filter="true" data-input="#myFilter2" data-autodividers="true" data-inset="true"></ul>
+				 	</div>
+				  </div>
+				  <!-- memberlist --> 
+
+
+		  </div>
+	 	
+	
+  </div>
+  
+  <div data-role="footer">
+    <p> <i class="fa fa-sitemap" aria-hidden="true"></i>  Congressional National High School </p>
+  </div> 
+</div> 
+
+
+
+<!-- modal -->
+
+<!-- add  account -->
+<div id="modalAddAccount" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> <i class="fa fa-user-plus" aria-hidden="true"></i>   Add an account </h4>
+      </div>
+      <div class="modal-body modal-body-account ">
+        
+        <div class="form-group">
+	      <label>Name:</label>
+	      <input type="text" class="form-control i-name" placeholder="">
+	    </div>
+
+	    <div class="form-group">
+	      <label>Gender:</label>
+	      <select class="form-control i-gender" >
+	      	<option>Male</option>
+	      	<option>Female</option>
+	      </select>
+	    </div>
+
+	    <div class="form-group">
+	      <label>Age:</label>
+	      <input type="text" class="form-control i-age" placeholder="">
+	    </div>
+
+	    <div class="form-group">
+	      <label>Address:</label>
+	      <input type="text" class="form-control i-address" placeholder="">
+	    </div>
+
+	    <div class="form-group">
+	      <label>Contact #:</label>
+	      <input type="text" class="form-control i-contactno" placeholder="">
+	    </div>
+
+        <div class="form-group">
+	      <label>Year Level:</label>
+	      <select class="form-control i-yearlevel l-yearlevel" ></select>
+	    </div>
+
+	    <div class="form-group">
+	      <label>School Year:</label>
+	      <select class="form-control i-schoolyear l-schoolyear"> </select>
+	    </div>
+
+		<div class="form-group">
+	      <label>Section:</label>
+	      <input type="text" class="form-control i-section" placeholder="">
+	    </div>
+
+
+        <div class="form-group">
+	      <label>Username:</label>
+	      <input type="text" class="form-control i-username" placeholder="">
+	    </div>
+
+	    <div class="form-group">
+	      <label for="pwd">Password:</label>
+	      <input type="password" class="form-control i-password" id="" placeholder="">
+	    </div>	
+
+	    <div class="form-group">
+	      <label>Role:</label>
+	      <select class="form-control i-userrole l-userrole" > </select>
+	    </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-addaccount">Add</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- update an  account -->
+<div id="modalUpdateAccount" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">  <i class="fa fa-edit" aria-hidden="true"></i>  Update an account </h4>
+      </div>
+      <div class="modal-body modal-body-account ">
+        
+        <div class="form-group">
+	      <label>Name:</label>
+	      <input type="text" class="form-control u-name" placeholder="">
+	    </div>
+
+	    <div class="form-group">
+	      <label>Gender:</label>
+	      <select class="form-control u-gender" >
+	      	<option>Male</option>
+	      	<option>Female</option>
+	      </select>
+	    </div>
+
+	    <div class="form-group">
+	      <label>Age:</label>
+	      <input type="text" class="form-control u-age" placeholder="">
+	    </div>
+
+	    <div class="form-group">
+	      <label>Address:</label>
+	      <input type="text" class="form-control u-address" placeholder="">
+	    </div>
+
+	    <div class="form-group">
+	      <label>Contact #:</label>
+	      <input type="text" class="form-control u-contactno" placeholder="">
+	    </div>
+
+        <div cl
+        ass="form-group">
+	      <label>Year Level:</label>
+	      <select class="form-control u-yearlevel l-yearlevel" ></select>
+	    </div>
+
+	    <div class="form-group">
+	      <label>School Year:</label>
+	      <select class="form-control u-schoolyear l-schoolyear"> </select>
+	    </div>
+
+		<div class="form-group">
+	      <label>Section:</label>
+	      <input type="text" class="form-control u-section" placeholder="">
+	    </div>
+
+
+        <div class="form-group">
+	      <label>Username:</label>
+	      <input type="text" class="form-control u-username" placeholder="">
+	    </div>
+
+	    <div class="form-group">
+	      <label for="pwd">Password:</label>
+	      <input type="password" class="form-control u-password" id="" placeholder="">
+	    </div>	
+
+	    <div class="form-group">
+	      <label>Role:</label>
+	      <select class="form-control u-userrole l-userrole" > </select>
+	    </div>
+
+	    <div class="form-group">
+	      <label>Status:</label>
+	      <select class="form-control u-status" >
+	      	<option value="active">Activate</option>
+	      	<option value="deactivate">Deactivate</option>
+	      </select>
+	    </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-updateaccount">Update</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- view account  -->
+<div id="modalViewAccount" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">  <i class="fa fa-user" aria-hidden="true"></i> <span class="v-name"> </span> </h4>
+      </div>
+      <div class="modal-body modal-body-account ">
+	        
+	  	<table class="table table-bordered table-striped table-hover">
+	  		<tbody>
+	  			<tr>
+	  				<th> ID </th>
+	  				<td> <span class="v-userid"> </span>  </td>
+	  			</tr>
+	  			<tr>
+	  				<th> Name </th>
+	  				<td> <span class="v-name"> </span>  </td>
+	  			</tr>
+	  			<tr>
+	  				<th>  Gender </th>
+	  				<td> <span class="v-gender"> </span>  </td>
+	  			</tr>
+	  			<tr>
+	  				<th> Age </th>
+	  				<td> <span class="v-age"> </span>  </td>
+	  			</tr>
+	  			<tr>
+	  				<th> Section </th>
+	  				<td> <span class="v-section"> </span>  </td>
+	  			</tr>  			
+	  			<tr>
+	  				<th> Year Level </th>
+	  				<td> <span class="v-yearlevel"> </span>  </td>
+	  			</tr>
+	  			<tr>
+	  				<th> School Year </th>
+	  				<td> <span class="v-schoolyear"> </span>  </td>
+	  			</tr>
+	  			<tr>
+	  				<th> Contact No. </th>
+	  				<td> <span class="v-contactno"> </span>  </td>
+	  			</tr>
+	  			<tr>
+	  				<th> Address </th>
+	  				<td> <span class="v-address"> </span>  </td>
+	  			</tr>
+	  		</tbody>
+	  	</table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-chataccount">Chat</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+
+	<!-- Include the jQuery library -->
+	<script src="ext/jquery-1.11.3.min.js"></script>
+
+	<!--bootstrap min -->
+	<script type="text/javascript" src="js/bootstrap-min.js"></script>
+
+	<!-- Include the jQuery Mobile library -->
+	<script src="ext/jquery.mobile-1.4.5.min.js"></script>
+
+	<!-- bootbox -->
+	<script type="text/javascript" src="js/bootbox.min.js"> </script>
+
+	<!-- application js --> 
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/acc.js"></script>
+
+
+</html>
